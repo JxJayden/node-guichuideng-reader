@@ -1,0 +1,23 @@
+{
+  "name": "node-reader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "JxJayden",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "crawler": "^1.0.2",
+    "koa": "^1.2.5",
+    "koa-compress": "^1.0.9",
+    "koa-conditional-get": "^1.0.3",
+    "koa-etag": "^2.1.1",
+    "koa-favicon": "^1.2.1",
+    "koa-static": "^2.1.0",
+    "mkdirp": "^0.5.1",
+    "progress": "^1.1.8"
+  }
+}
