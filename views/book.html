@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+
+<body>
+    {{if err}}
+    <div>{{message}}</div>
+    {{else}}
+    <h1>{{title}}</h1>
+    <h2>{{author}}</h2>
+    {{each chapters as chapter}}
+    <div>
+        <h3>{{chapter.chaptersName}}</h3>
+        {{each chapter.post}}
+        <div><a href="/post.html?chapter={{chapter.chaptersNum}}&post={{$value.postNum}}">{{$value.title}}</a></div>
+        {{/each}}
+    </div>
+    {{/each}} {{/if}}
+
+</body>
+
+</html>
