@@ -49,15 +49,3 @@ section {
     padding: 4% 0;
 }
 
-@media screen and (min-width: 426px) {
-    .content {
-        width: 90vw;
-    }
-    .list {
-        width: inherit;
-        column-count: 2;
-    }
-    a {
-        font-size: 30px;
-    }
-}

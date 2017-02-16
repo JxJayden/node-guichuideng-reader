@@ -63,18 +63,3 @@ h1 {
     left: 0;
     bottom: 10px;
 }
-
-@media screen and (min-width: 426px) {
-    article {
-        width: 90vw;
-    }
-    h1 {
-        font-size: 34px;
-    }
-    article p {
-        font-size: 34px;
-    }
-    a {
-        font-size: 30px;
-    }
-}
