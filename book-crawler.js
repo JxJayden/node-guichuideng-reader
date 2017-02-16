@@ -57,7 +57,7 @@ exports.getBookInfo = function() {
     })
 };
 
-function getOnePost(chapterInex, postIndex, postInfo) {
+exports.getOnePost = function(chapterInex, postIndex, postInfo) {
     console.log(postInfo);
 
     if (fs.existsSync(`${defaultPath}/${chapterInex}/${postIndex}.html`)) {
@@ -98,8 +98,6 @@ exports.getAllPost = function() {
 
         if (i >= chapters.length) {
             console.log('all done');
-            return;
-
         } else {
             console.log(`开始爬第 ${i} 章`);
             urlArr = [];
