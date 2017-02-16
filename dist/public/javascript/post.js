@@ -13,21 +13,18 @@ $(function() {
     function load(cha, po) {
         $('#content').empty().load('book/' + cha + '/' + po + '.html', function(response, status, xhr) {
             if (status == 'error') {
-                if (tryLoadCount <= 3) {
-                    tryLoadCount++;
-                    load();
-                } else {
-                    alert('出错啦，请重试～！');
-                }
+                $('#content').html('出现错误啦，请重试！')
+            } else {
+                window.scrollTo(0, 0);
             }
         });
+
     }
 
     function addHistory(cha, po) {
         history.pushState({ "chapter": cha, post: po }, '', '/post.html?chapter=' + cha + '&post=' + po);
         reset();
         load(chapter, post);
-        window.scrollTo(0, 0)
     };
 
     function reset() {

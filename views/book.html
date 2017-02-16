@@ -4,22 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <title>{{title}}</title>
+    <link rel="stylesheet" href="/public/css/book.css">
 </head>
 
 <body>
     {{if err}}
     <div>{{message}}</div>
     {{else}}
-    <h1>{{title}}</h1>
-    <h2>{{author}}</h2>
-    {{each chapters as chapter}}
-    <div>
-        <h3>{{chapter.chaptersName}}</h3>
-        {{each chapter.post}}
-        <div><a href="/post.html?chapter={{chapter.chaptersNum}}&post={{$value.postNum}}">{{$value.title}}</a></div>
+    <main class="content">
+        <header>
+            <h1>{{title}}</h1>
+            <h2>{{author}}</h2>
+        </header>
+        {{each chapters as chapter}}
+        <div class="chapter">
+            <section>
+                <h3 class="chapter-title">{{chapter.chaptersName}}</h3>
+            </section>
+            <div class="list">
+                {{each chapter.post}}
+                <div>
+                    <a href="/post.html?chapter={{chapter.chaptersNum}}&post={{$value.postNum}}">{{$value.title}}</a>
+                </div>
+                {{/each}}
+            </div>
+        </div>
         {{/each}}
-    </div>
-    {{/each}} {{/if}}
+    </main>
+    {{/if}}
 
 </body>
 
