@@ -20,8 +20,14 @@ module.exports = {
 
         // Second application
         {
-          name      : "all",
-          script    : "get-bookinfo.js"
+            name: "all",
+            script: "get-bookinfo.js",
+            env: {
+                COMMON_VARIABLE: "true"
+            },
+            env_production: {
+                NODE_ENV: "production"
+            }
         }
     ],
 
