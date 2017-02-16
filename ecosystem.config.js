@@ -36,7 +36,7 @@ module.exports = {
             ref: "origin/master",
             repo: "https://github.com/JxJayden/node-guichuideng-reader.git",
             path: "/home/jayden/var/reader",
-            "post-deploy": "yarn install && pm2 startOrRestart ecosystem.config.js --env production"
+            "post-deploy": "yarn install"
         },
         dev: {
             user: "node",

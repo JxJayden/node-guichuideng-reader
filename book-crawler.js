@@ -7,7 +7,7 @@ const ProgressBar = require('progress'),
 
 let books = {},
     defaultUrl = 'http://www.guichuideng.org/',
-    defaultPath = 'dist/book/',
+    defaultPath = __dirname + '/dist/book/',
     bar;
 
 let crawler = new Crawler();
