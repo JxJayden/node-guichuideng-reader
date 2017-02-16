@@ -70,4 +70,4 @@ pm2 deploy ecosystem.config.js production setup
 ```
 
 ## 备注
-移动端没有做太多的优化，只调整了字体大小。
+未做移动端优化。
