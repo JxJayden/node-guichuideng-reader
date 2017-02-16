@@ -27,7 +27,7 @@ app.use(favicon(__dirname + '/dist/public/img/favicon.ico'));
 app.use(conditional());
 app.use(etag());
 
-app.use(serve(__dirname + '/dist'));
+app.use(serve(__dirname + '/dist/'));
 
 app.use(router.routes());
 app.use(router.allowedMethods());
