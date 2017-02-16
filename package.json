@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "getbook": "node get-bookinfo"
+    "getbook": "node get-bookinfo",
+    "getall": "node get-all-post"
   },
   "author": "JxJayden",
   "license": "ISC",

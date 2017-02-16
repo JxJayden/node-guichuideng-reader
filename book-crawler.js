@@ -57,12 +57,11 @@ exports.getBookInfo = function() {
     })
 };
 
-exports.getOnePost = function(chapterInex, postIndex, postInfo) {
+function getOnePost(chapterInex, postIndex, postInfo) {
     console.log(postInfo);
 
     if (fs.existsSync(`${defaultPath}/${chapterInex}/${postIndex}.html`)) {
         console.log(`${postIndex}.html is exit`);
-
     } else {
         crawler.queue({
             uri: postInfo.url,
@@ -82,4 +81,82 @@ exports.getOnePost = function(chapterInex, postIndex, postInfo) {
             }
         })
     }
+}
+
+exports.getAllPost = function() {
+    let data = fs.readFileSync(`${defaultPath}/book.json`).toString('utf-8');
+
+    data = JSON.parse(data);
+    let chapters = data.chapters,
+        i = 0,
+        urlArr = [],
+        numObj = {},
+        k = 0,
+        c, j, bar;
+
+    function step() {
+
+        if (i >= chapters.length) {
+            console.log('all done');
+            return;
+
+        } else {
+            console.log(`开始爬第 ${i} 章`);
+            urlArr = [];
+            j = 0;
+
+            chapters[i].post.forEach((value, index) => {
+                if (fs.existsSync(`${defaultPath}${i}/${index}.html`)) {
+                    console.log(`${defaultPath}${i}/${index}.html is exist`);
+
+                    if (index === chapters[i].post.length - 1) {
+                        i++;
+                        step();
+                    }
+
+                } else {
+                    urlArr.push(value.url);
+                    numObj[value.url] = `${i}/${index}`;
+                }
+            })
+
+            bar = new ProgressBar('  downloading :title [:bar] :percent :elapseds', {
+                complete: '=',
+                incomplete: ' ',
+                width: 40,
+                total: (urlArr.length)
+            })
+
+            c = new Crawler({
+                maxConnections: urlArr.length,
+                callback: function(error, res, done) {
+                    if (error) {
+                        console.error(error);
+                    } else {
+                        bar.tick({ title: j + '/' + (urlArr.length - 1) })
+
+                        let $ = res.$;
+                        let key = res.request.uri.href;
+                        let filePath = `${defaultPath}${numObj[key]}.html`;
+
+                        $('article center').remove();
+                        $('article script').remove();
+                        $('.entry-content div').remove();
+
+                        fs.writeFileSync(filePath, $('.entry-content').html());
+
+                        if (j === urlArr.length - 1) {
+                            console.log(`第 ${i} 章已爬完`);
+                            i++;
+                            step();
+                        } else {
+                            j++;
+                        }
+                    }
+                }
+            })
+            c.queue(urlArr);
+        }
+    }
+    step();
 };
