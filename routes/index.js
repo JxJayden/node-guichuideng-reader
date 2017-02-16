@@ -5,6 +5,8 @@ const fs = require('fs'),
 let data = fs.readFileSync(`${defaultPath}/book.json`);
 data = JSON.parse(data.toString('utf-8'));
 
+router.redirect('/', '/book.html');
+
 router.get('/book.html', function*(next) {
     try {
         this.body = this.render('book', data);
