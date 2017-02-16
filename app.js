@@ -23,7 +23,7 @@ app.use(compress({
     flush: require('zlib').Z_SYNC_FLUSH
 }));
 
-app.use(favicon(__dirname + '/public/img/favicon.ico'));
+app.use(favicon(__dirname + '/dist/public/img/favicon.ico'));
 app.use(conditional());
 app.use(etag());
 
