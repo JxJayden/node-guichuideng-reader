@@ -14,6 +14,8 @@ let crawler = new Crawler();
 
 exports.getBookInfo = function() {
     console.log('start get book info');
+    utils.mkdir(defaultPath, '');
+    return;
     crawler.queue({
         uri: 'http://www.guichuideng.org/',
         maxConnections: 100,
@@ -84,6 +86,9 @@ exports.getOnePost = function(chapterInex, postIndex, postInfo) {
 }
 
 exports.getAllPost = function() {
+    if (!fs.existsSync(`${defaultPath}/book.json`)) {
+        throw TypeError('请先运行 npm run getall ！');
+    }
     let data = fs.readFileSync(`${defaultPath}/book.json`).toString('utf-8');
 
     data = JSON.parse(data);
