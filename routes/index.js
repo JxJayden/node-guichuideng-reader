@@ -8,6 +8,7 @@ data = JSON.parse(data.toString('utf-8'));
 router.redirect('/', '/book.html');
 
 router.get('/book.html', function*(next) {
+    console.log('get book.html');
     try {
         this.body = this.render('book', data);
     } catch (err) {
@@ -21,6 +22,7 @@ router.get('/book.html', function*(next) {
 });
 
 router.get('/post.html', function*(next) {
+    console.log('get post.html');
     let chapterIndex = this.query.chapter,
         postIndex = this.query.post,
         postInfo = data.chapters[chapterIndex].post[postIndex];
