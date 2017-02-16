@@ -34,7 +34,7 @@ npm run getall
 ## 部署
 在这一步之前你需要先了解一下如何使用 pm2 来 deploy 
 可参考我的博文：[使用 pm2 部署 node 服务](http://blog.jxdjayden.cn/2017/02/03/JavaScript/%E4%BD%BF%E7%94%A8github%E5%92%8Cpm2%E9%83%A8%E7%BD%B2node%E6%9C%8D%E5%8A%A1/)
-修改一下 ecosystem.config.js 的配置，这部份不再多说。
+注意要修改一下 ecosystem.config.js 的配置，这部份不再多说。
 
 ```bash
 pm2 deploy ecosystem.config.js production setup
@@ -68,3 +68,6 @@ pm2 deploy ecosystem.config.js production setup
 ├── package.json
 └── README.md
 ```
+
+## 备注
+移动端没有做太多的优化，只调整了字体大小。
