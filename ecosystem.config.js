@@ -19,10 +19,10 @@ module.exports = {
         },
 
         // Second application
-        // {
-        //   name      : "WEB",
-        //   script    : "web.js"
-        // }
+        {
+          name      : "all",
+          script    : "get-bookinfo.js"
+        }
     ],
 
     /**
