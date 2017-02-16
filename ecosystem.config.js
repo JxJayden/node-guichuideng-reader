@@ -31,12 +31,12 @@ module.exports = {
      */
     deploy: {
         production: {
-            user: "node",
-            host: "212.83.163.1",
+            user: "jayden",
+            host: "118.89.26.227",
             ref: "origin/master",
-            repo: "git@github.com:repo.git",
-            path: "/var/www/production",
-            "post-deploy": "npm install && pm2 startOrRestart ecosystem.json --env production"
+            repo: "https://github.com/JxJayden/node-guichuideng-reader.git",
+            path: "/home/jayden/var/reader",
+            "post-deploy": "yarn install && pm2 startOrRestart ecosystem.json --env production"
         },
         dev: {
             user: "node",
