@@ -1,17 +1,19 @@
 {
-  "apps" : [{
-    "name"        : "app",
-    "script"      : "./app.js",
-    "watch"       : true,
-    "env": {
-      "NODE_ENV": "development"
-    },
-    "env_production" : {
-       "NODE_ENV": "production"
-    }
-  },{
-    "name"       : "crawler",
-    "script"     : "./get-bookinfo.js",
-    "instances"  : 4
-  }]
+    "apps": [{
+        "name": "app",
+        "script": "./app.js",
+        "watch": true,
+        "env": {
+            "NODE_ENV": "development"
+        },
+        "env_production": {
+            "NODE_ENV": "production"
+        }
+    }, {
+        "name": "info",
+        "script": "./get-bookinfo.js"
+    }, {
+        "name": "all",
+        "script": "./get-all-post.js"
+    }]
 }
